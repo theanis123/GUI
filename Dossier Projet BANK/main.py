@@ -1,4 +1,5 @@
 import tkinter as tk
+from customtkinter import *
 from PIL import ImageTk, Image
 from datetime import datetime
 import locale
@@ -44,7 +45,15 @@ label.pack(pady=40)
 
 
 #partie bouton ----si tu veux ajouter un role pour le bouton ajoute "commad=ta fonction"
-button = tk.Button(frm2,text="Start      ابدا ",font=(('Arial'),20),width=20,bg='#1679EF',fg='#F2F7F9',bd=0)
+button = CTkButton(master=frm2,
+                   text="Start      ابدا ",
+                   font=(('Arial'),28),
+                   width=250,
+                   height=60,
+                   fg_color='#1679EF',
+                   text_color='#F2F7F9',
+                   border_width=0,
+                   corner_radius=4,)
 button.pack()
 frm2.pack()
 
@@ -52,7 +61,7 @@ frm2.pack()
 #bande bleu d'en bas
 frm3 = tk.Frame(root, bg='#1679EF', height=30)
 date=datetime.now()
-label2 = tk.Label(frm3,text=f"{date:%m-%d-%Y}  /  {date:%I:%M}",font=('Arial',12),fg='#F2F7F9',bg='#1679EF')
+label2 = tk.Label(frm3,text=f"{date:%d-%m-%Y}  /  {date:%I:%M}",font=('Arial',12),fg='#F2F7F9',bg='#1679EF')
 label2.pack(expand=tk.YES)
 
 frm3.pack(fill=tk.X, side=tk.BOTTOM)
