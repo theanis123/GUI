@@ -30,42 +30,41 @@ label1.pack(expand=YES)
 
 #Partie central (contenu)
 
+
 frm2 = Frame(root,bg='#F2F7F9',height=360,width=800)
 
-frm_box = Frame(root,bg='#F2F7F9',height=300,width=300)
-frm_box.place(x=600,y=100)
+lbl_msg = CTkLabel(master=frm2,text='يرجى ملء المعلومات التالية',font=('Arial',30,"bold"),text_color='#095CD3',fg_color='#F2F7F9')
+lbl_msg.place(x = 280 , y=30)
 
-box1 = CTkButton(master=frm_box,text='A',text_color='#1679EF',fg_color='#F2F7F9',height=80,width=90,corner_radius=4,border_width=2,border_color='#1679EF',hover=None)
-box1.grid(row=0,column=0,padx=0.5,pady=0.5)
+frm_info = CTkFrame(master=frm2,fg_color='#F2F7F9')
+lbl1 = CTkLabel(master=frm_info,text="إسم المستخدم",font=('Arial',22,"bold"),fg_color='#F2F7F9',text_color='#1679EF')
+lbl1.grid(row=0,column=1,padx=10,pady=15,sticky='e')
 
-box5 = CTkButton(master=frm_box,text='B',text_color='#1679EF',fg_color='#F2F7F9',height=100,width=90,corner_radius=4,border_width=2,border_color='#1679EF',hover=None)
-box5.grid(row=1,column=0,padx=0.5,pady=0.5)
-
-box13 = CTkButton(master=frm_box,text='C',text_color='#1679EF',fg_color='#F2F7F9',height=140,width=90,corner_radius=4,border_width=2,border_color='#1679EF',hover=None)
-box13.grid(row=2,column=0,padx=0.5,pady=0.5,rowspan=2)
+lbl2 = CTkLabel(master=frm_info,text="كلمة السر",font=('Arial',22,"bold"),fg_color='#F2F7F9',text_color='#1679EF')
+lbl2.grid(row=1,column=1,padx=10,pady=15,sticky='e')
 
 
 
-frm_msg = CTkFrame(master=frm2,fg_color='#F2F7F9')
+entry1 = CTkEntry(master=frm_info,fg_color='#F2F7F9',text_color='black',font=('Arial',20),border_color='#1679EF',border_width=2.5,width=200)
+entry1.grid(row=0,column=0,padx=10,pady=15)
 
-label_msg = CTkLabel(master=frm_msg,text='Votre montant total à régler',font=('Arial',25,"bold"),fg_color='#F2F7F9',text_color='#1679EF')
-label_msg.grid(row=0,column=0,pady=30)
-
-#case prix
-label_msg = CTkLabel(master=frm_msg,text='400 DA',font=('Arial',40),fg_color='#1679EF',text_color='#F2F7F9',corner_radius=4,height=70,width=200,)
-label_msg.grid(row=1,column=0)
-
-#image fleche
-img_flch = Image.open('fr/image/flech_bas.png')
-img_flch_final = ImageTk.PhotoImage(img_flch)
-
-label_flch = CTkLabel(master=frm2,fg_color='#1679EF',image=img_flch_final,text=None)
-label_flch.place(x=120,y=105)
-
-frm_msg.place(x=220,y=50)
+entry2 = CTkEntry(master=frm_info,fg_color='#F2F7F9',text_color='black',font=('Arial',20),border_color='#1679EF',border_width=2.5,width=200)
+entry2.grid(row=1,column=0,padx=10,pady=15)
 
 
 
+frm_info.place(x=430,y=100)
+
+frm_btn = CTkFrame(master=frm2,fg_color='#F2F7F9')
+bouton = CTkButton(master=frm_btn,text='دخول',font=('Arial',25),text_color='#F2F7F9',fg_color='#1679EF',height=45,width=200,corner_radius=4)
+bouton.grid(row=0,column=0,padx=10)
+
+img_flch = Image.open('image/fleche10.png')
+flch_img = ImageTk.PhotoImage(img_flch)
+lbl_flch = CTkLabel(master=frm_btn,fg_color='#F2F7F9',image=flch_img,text="")
+lbl_flch.grid(row=0,column=1)
+
+frm_btn.place(x=533,y=280)
 
 
 
@@ -79,8 +78,19 @@ frm2.pack()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 btn_srt = CTkButton(master=frm2,
-                    text='Sortie',
+                    text='خروج',
                     font=('Arial',20),
                     fg_color='#1679EF',
                     text_color='#F2F7F9',

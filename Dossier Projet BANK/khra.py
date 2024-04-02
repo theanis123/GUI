@@ -1,26 +1,45 @@
 from customtkinter import *
-from tkinter import *
+import kivy.app
+import arabic_reshaper
+import bidi.algorithm
 
-root = Tk()
+
+root = CTk()
 root.geometry("800x480")
-root.config(bg='white')
+root.configure(fg_color='white')
+
+
+reshaped_text7 = arabic_reshaper.reshape( '48 ساعة / 4000 دج')
+bidi_text  = bidi.algorithm.get_display(reshaped_text7)
+
+lbl = CTkButton(master=root,
+                text=bidi_text,
+                font=('Arial',26),
+                fg_color='#1679EF',
+                text_color='#F2F7F9',
+                corner_radius=4,
+                height=45,
+                width=260,
+                border_width=0)
+lbl.place(x=66,y=220)
 
 
 
-# box = CTkFrame(master=root, fg_color='white', height=100, width=100, corner_radius=10, border_width=2, border_color='blue')
-# box.pack(expand=YES)
+# reshaped_text8 = arabic_reshaper.reshape( '48 ساعة / 4000 دج')
+# bidi_text  = bidi.algorithm.get_display(reshaped_text8)
+# btn7 = CTkButton(master=root,
+#                  text=reshaped_text8,
+#                  font=('Arial',26),
+#                  fg_color='#1679EF',
+#                  text_color='#F2F7F9',
+#                  width=260,
+#                  height=45,
+#                  border_width=0,
+#                  corner_radius=4)
+# btn7.place(x=66,y=220)
+                 
 
-# lbl = CTkLabel(master=box, text='khra', text_color='black')
-# lbl.pack(fill="none", expand=YES)  # Set fill to "none" and expand to False for the label
-
-button = CTkButton(master=root,fg_color='white',text='A',text_color='black',border_color='blue',border_width=2,corner_radius=4,hover=None)
-button.pack()
 
 
-box12 = CTkButton(master=frm_1,text='A',text_color='#1679EF',fg_color='#F2F7F9',height=100,width=50,corner_radius=4,border_width=2,border_color='#1679EF',hover=None)
-box12.grid(row=1,column=2,padx=0.5,pady=0.5)
-
-box13 = CTkButton(master=frm_1,text='A',text_color='#1679EF',fg_color='#F2F7F9',height=100,width=50,corner_radius=4,border_width=2,border_color='#1679EF',hover=None)
-box13.grid(row=1,column=3,padx=0.5,pady=0.5)
 
 root.mainloop()

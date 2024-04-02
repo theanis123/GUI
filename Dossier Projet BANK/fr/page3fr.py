@@ -37,8 +37,8 @@ label_msg = Label(frm2,text="Veuillez entrer le code\nde votre carte d'identité
 label_msg.place(x=345,y=20)
 
 #partie entry 
-entry = Entry(frm2,font=('Arial',21,'bold'),bd=2,relief=GROOVE,width=22)
-entry.place(x=370,y=90)
+entry = CTkEntry(master=frm2,font=('Arial',23,'bold'),fg_color='#F2F7F9',border_width=2,width=365,border_color='#1679EF',corner_radius=4,text_color='black',height=50)
+entry.place(x=370,y=105)
 
 
 #partie bouton

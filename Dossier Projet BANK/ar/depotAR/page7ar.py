@@ -3,6 +3,8 @@ from customtkinter import *
 from PIL import Image,ImageTk
 from datetime import datetime
 import locale
+import arabic_reshaper
+import bidi.algorithm
 
 
 #met la localisatin suivant la france → permet davoir la langue française pour la date
@@ -48,11 +50,13 @@ box13.grid(row=2,column=0,padx=0.5,pady=0.5,rowspan=2)
 
 frm_msg = CTkFrame(master=frm2,fg_color='#F2F7F9')
 
-label_msg = CTkLabel(master=frm_msg,text='Votre montant total à régler',font=('Arial',25,"bold"),fg_color='#F2F7F9',text_color='#1679EF')
+label_msg = CTkLabel(master=frm_msg,text='المبلغ الإجمالي الذي عليك دفعه',font=('Arial',30,"bold"),fg_color='#F2F7F9',text_color='#095CD3')
 label_msg.grid(row=0,column=0,pady=30)
 
 #case prix
-label_msg = CTkLabel(master=frm_msg,text='400 DA',font=('Arial',40),fg_color='#1679EF',text_color='#F2F7F9',corner_radius=4,height=70,width=200,)
+reshaped_text = arabic_reshaper.reshape( '400 دج')
+text  = bidi.algorithm.get_display(reshaped_text)
+label_msg = CTkLabel(master=frm_msg,text=text,font=('Arial',40),fg_color='#1679EF',text_color='#F2F7F9',corner_radius=4,height=70,width=200,)
 label_msg.grid(row=1,column=0)
 
 #image fleche
@@ -80,7 +84,7 @@ frm2.pack()
 
 
 btn_srt = CTkButton(master=frm2,
-                    text='Sortie',
+                    text='خروج',
                     font=('Arial',20),
                     fg_color='#1679EF',
                     text_color='#F2F7F9',
